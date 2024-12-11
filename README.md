@@ -47,3 +47,15 @@ The following example does a few things:
     </on-error>
 </policies>
 ```
+To read the *appid* from Application Insights, find the relevant entry from the *requests* table and join on *traces*:
+``` sql
+requests
+| where name =='POST /contoso/order/oauth'
+| join kind=leftouter (
+    traces
+|   extend body=todynamic(tostring(message))
+|   extend appid= body.appid
+  ) on operation_Id
+| project timestamp, name, operation_Id, appId
+| order by timestamp desc  
+```
