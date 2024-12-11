@@ -1,4 +1,6 @@
-# Sample that shows how to use Azure API Management Policy to read JWT values and optionally write to Azure Application Insights.
+# How to Read Claims from a JWT in Azure API Management
+
+Sample that shows how to use Azure API Management Policy to read JWT values and optionally write to Azure Application Insights.
 
 The following example does a few things:
 * Validates the JWT token passed to APIM, in this case from Microsoft Entra ID, including the *audience* and and *role* claims. For this to work, the client must have already been granted permission and of course requested an access token
