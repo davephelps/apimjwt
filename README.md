@@ -37,6 +37,8 @@ The following example does a few things:
             }</message>
         </trace>
         <set-header name="Authorization" exists-action="delete" />
+        <!-- Managed Identity -->
+        <authentication-managed-identity client-id="user managed identity" resource="https://yourtenant.onmicrosoft.com/contoso/backend" />
     </inbound>
     <backend>
         <base />
